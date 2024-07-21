@@ -64,27 +64,4 @@
     checkURLAndLoadScript();
 })();
 
-
-
-
-
-    /*-----------------------------------------------*
-    *                                               *
-    *               DISABLE INTEGRITY               *
-    *                                               *
-    ------------------------------------------------*/
-
-
-    if (!window.scriptIsInjected) {
-        window.scriptIsInjected = true;
-        setTimeout(insertCode, 1000);
-        console.group("integrity patches");
-        [...document.getElementsByTagName("script"), ...document.getElementsByTagName("link")].forEach(v => {
-            if (v.integrity) {
-                console.log(v.integrity);
-                v.removeAttribute("integrity");
-            }
-        });
-        console.groupEnd();
-    }
 })
